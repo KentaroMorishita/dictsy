@@ -20,9 +20,9 @@ export default function DictationPage() {
   useEffect(() => {
     const loadVoices = () => {
       const allVoices = window.speechSynthesis.getVoices()
-      const enVoices = allVoices.filter((v) => v.lang.startsWith("en-"))
-      setVoices(enVoices)
-      if (enVoices.length > 0) setSelectedVoice(enVoices[0].name)
+      const enUSVoices = allVoices.filter((v) => v.lang === "en-US")
+      setVoices(enUSVoices)
+      if (enUSVoices.length > 0) setSelectedVoice(enUSVoices[0].name)
     }
     loadVoices()
     window.speechSynthesis.onvoiceschanged = loadVoices
@@ -154,11 +154,13 @@ export default function DictationPage() {
               value={selectedVoice}
               onChange={(e) => setSelectedVoice(e.target.value)}
             >
-              {voices.map((v) => (
-                <option key={v.name} value={v.name}>
-                  {v.name} ({v.lang})
-                </option>
-              ))}
+              {voices
+                .filter((v) => v.lang === "en-US")
+                .map((v) => (
+                  <option key={v.name} value={v.name}>
+                    {v.name} ({v.lang})
+                  </option>
+                ))}
             </select>
           </div>
           <button
