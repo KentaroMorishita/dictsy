@@ -22,7 +22,10 @@ export default function DictationPage() {
       const allVoices = window.speechSynthesis.getVoices()
       const enUSVoices = allVoices.filter((v) => v.lang === "en-US")
       setVoices(enUSVoices)
-      if (enUSVoices.length > 0) setSelectedVoice(enUSVoices[0].name)
+      if (enUSVoices.length > 0) {
+        const samantha = enUSVoices.find((v) => v.name === "Samantha")
+        setSelectedVoice(samantha ? samantha.name : enUSVoices[0].name)
+      }
     }
     loadVoices()
     window.speechSynthesis.onvoiceschanged = loadVoices
@@ -137,9 +140,9 @@ export default function DictationPage() {
         </div>
         <section className="w-full bg-white/90 dark:bg-gray-900/80 rounded-2xl shadow-xl p-8 flex flex-col gap-6 items-center border border-indigo-100 dark:border-gray-700 relative">
           <div className="flex items-center justify-center gap-1 text-sm text-pink-300 dark:text-pink-200 mb-2">
-  <span className="animate-pulse">✨</span>
-  <span>Dictsyで楽しくディクテーション！</span>
-</div>
+            <span className="animate-pulse">✨</span>
+            <span>Dictsyで楽しくディクテーション！</span>
+          </div>
           {/* 音声選択UI */}
           <div className="w-full flex flex-col sm:flex-row gap-2 items-center justify-center mb-2">
             <label
@@ -334,7 +337,6 @@ export default function DictationPage() {
               )}
             </>
           )}
-
         </section>
       </div>
     </main>
