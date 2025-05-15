@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "text": "The quick brown fox jumps over the lazy dog.",
+    "source": "proverb",
+    "difficulty": "easy",
+    "topic": ["pronunciation", "animals"],
+    "notes": "Pangram containing every letter of the alphabet.",
+    "ttsVoice": "en-US-Wavenet-D"
+  },
+  {
+    "id": 2,
+    "text": "How are you doing today?",
+    "source": "daily",
+    "difficulty": "easy",
+    "topic": ["daily", "greetings"],
+    "notes": "Common conversation starter.",
+    "ttsVoice": "en-US-Wavenet-A"
+  },
+  {
+    "id": 3,
+    "text": "She sells seashells by the seashore.",
+    "source": "tongue-twister",
+    "difficulty": "medium",
+    "topic": ["pronunciation"],
+    "notes": "Focus on /s/ and /ʃ/ sounds.",
+    "ttsVoice": "en-US-Wavenet-C"
+  },
+  {
+    "id": 4,
+    "text": "Learning English can be fun and rewarding.",
+    "source": "motivation",
+    "difficulty": "easy",
+    "topic": ["daily", "motivation"],
+    "notes": "",
+    "ttsVoice": "en-US-Wavenet-D"
+  },
+  {
+    "id": 5,
+    "text": "Please write down what you hear.",
+    "source": "instruction",
+    "difficulty": "easy",
+    "topic": ["classroom"],
+    "notes": "Typical teacher instruction.",
+    "ttsVoice": "en-US-Wavenet-A"
+  },
+  {
+    "id": 6,
+    "text": "Could you give me a hand with this report before the deadline?",
+    "source": "business",
+    "difficulty": "medium",
+    "topic": ["business", "requests"],
+    "notes": "Polite workplace request with modal.",
+    "ttsVoice": "en-US-Wavenet-D"
+  },
+  {
+    "id": 7,
+    "text": "Our flight has been delayed due to inclement weather.",
+    "source": "travel",
+    "difficulty": "medium",
+    "topic": ["travel", "announcements"],
+    "notes": "Uses formal register.",
+    "ttsVoice": "en-US-Wavenet-B"
+  },
+  {
+    "id": 8,
+    "text": "What time does the museum open on weekends?",
+    "source": "travel",
+    "difficulty": "easy",
+    "topic": ["travel", "questions"],
+    "notes": "",
+    "ttsVoice": "en-US-Wavenet-C"
+  },
+  {
+    "id": 9,
+    "text": "Prices have risen steadily as inflation remains stubbornly high.",
+    "source": "news",
+    "difficulty": "hard",
+    "topic": ["economy", "news"],
+    "notes": "News-style sentence with adverb placement.",
+    "ttsVoice": "en-US-News-L"
+  },
+  {
+    "id": 10,
+    "text": "No sooner had she arrived than the meeting started.",
+    "source": "grammar",
+    "difficulty": "hard",
+    "topic": ["grammar", "inversion"],
+    "notes": "Inversion structure.",
+    "ttsVoice": "en-US-Wavenet-D"
+  }
+]
