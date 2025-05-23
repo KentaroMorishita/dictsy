@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
+import SettingsModal from "../components/SettingsModal"
 
 interface Problem {
   id: number
@@ -15,6 +16,7 @@ export default function DictationPage() {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
   const [selectedVoice, setSelectedVoice] = useState<string>("")
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
 
   // 音声一覧取得
   useEffect(() => {
@@ -124,6 +126,12 @@ export default function DictationPage() {
         >
           Dictsy
         </h1>
+        <button
+          onClick={() => setIsSettingsModalOpen(true)}
+          className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600"
+        >
+          ⚙️ Settings
+        </button>
         <div className="flex items-center gap-2 text-lg text-gray-600 dark:text-gray-300 mb-2">
           <span className="inline-block text-indigo-500 animate-bounce">
             🎧
@@ -143,29 +151,7 @@ export default function DictationPage() {
             <span className="animate-pulse">✨</span>
             <span>Dictsyで楽しくディクテーション！</span>
           </div>
-          {/* 音声選択UI */}
-          <div className="w-full flex flex-col sm:flex-row gap-2 items-center justify-center mb-2">
-            <label
-              className="text-sm text-gray-500 dark:text-gray-400 font-semibold"
-              htmlFor="voice-select"
-            >
-              音声:
-            </label>
-            <select
-              id="voice-select"
-              className="rounded px-2 py-1 border border-indigo-200 dark:border-gray-700 text-base bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-              value={selectedVoice}
-              onChange={(e) => setSelectedVoice(e.target.value)}
-            >
-              {voices
-                .filter((v) => v.lang === "en-US")
-                .map((v) => (
-                  <option key={v.name} value={v.name}>
-                    {v.name} ({v.lang})
-                  </option>
-                ))}
-            </select>
-          </div>
+          {/* 音声選択UI (now handled by SettingsModal) */}
           <button
             className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all font-bold text-lg"
             onClick={speak}
@@ -339,6 +325,13 @@ export default function DictationPage() {
           )}
         </section>
       </div>
+      <SettingsModal
+        isOpen={isSettingsModalOpen}
+        onClose={() => setIsSettingsModalOpen(false)}
+        voices={voices}
+        selectedVoice={selectedVoice}
+        onVoiceChange={setSelectedVoice}
+      />
     </main>
   )
 }
