@@ -22,7 +22,29 @@ const leckerli = Leckerli_One({
 
 export const metadata: Metadata = {
   title: "Dictsy",
-  description: "Dictation practice app",
+  description: "Dictation practice app for English learners",
+  openGraph: {
+    title: "Dictsy",
+    description: "Dictation practice app for English learners",
+    url: "https://dictsy.vercel.app",
+    siteName: "Dictsy",
+    images: [
+      {
+        url: "/ogp-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Dictsy - Dictation practice app",
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dictsy",
+    description: "Dictation practice app for English learners",
+    images: ["/ogp-image.png"],
+  },
 };
 
 export default function RootLayout({
